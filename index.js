@@ -1,4 +1,3 @@
-let city_token = "f88866f968b01d916aac1b8f288b0044";
 let api_key = "471167e190d324460794dabc656b7959";
 
 let citysWeather = [];
@@ -15,13 +14,14 @@ function showError(error) {
   notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
 
-// set position
+// set user position
 function setPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   getWeather(latitude, longitude);
 }
 
+//Get weather from API
 function getWeather(lat, lon) {
   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
   const weather = {};
