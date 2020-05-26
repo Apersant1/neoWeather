@@ -1,9 +1,7 @@
 let city_token = "f88866f968b01d916aac1b8f288b0044";
 let api_key = "471167e190d324460794dabc656b7959";
 
-// `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
-
-const weather = {};
+let citysWeather = [];
 
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition(setPosition, showError);
@@ -26,6 +24,7 @@ function setPosition(position) {
 
 function getWeather(lat, lon) {
   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
+  const weather = {};
   fetch(api)
     .then((response) => {
       let data = response.json();
@@ -49,6 +48,7 @@ function getWeather(lat, lon) {
         ":" +
         new Date(data.sys.sunset * 1000).getMinutes().toString(10);
     });
+  citysWeather.push(weather);
 }
 
-console.log(weather);
+console.log(citysWeather);
