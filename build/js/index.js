@@ -59,7 +59,7 @@ async function getWeatherInputCity(city) {
 
 function render(weather) {
 
-	console.log(weather)
+	
 
 	if (weather.cod == "404") {
 		let city = document.querySelector('.city');
