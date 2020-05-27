@@ -29,7 +29,7 @@ function setPosition(position) {
 
 // Get weather from API
 async function getWeather(lat, lon) {
-	let api = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
+	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
 	fetch(api)
 		.then(response => response.json())
 		.then(data => render(data))
@@ -48,7 +48,7 @@ searchBox.addEventListener('keypress', (e) => {
 })
 
 async function getWeatherInputCity(city) {
-	let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`
+	let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`
 	fetch(url)
 		.then(response => response.json())
 		.then(data => render(data))
